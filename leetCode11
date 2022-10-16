@@ -1,0 +1,18 @@
+ public static int leetCode11双指针(int[] nums)
+    {
+        int h, ans = 0, max = 0;
+        int left = 0;
+        int right = nums.length;
+        while(left < right)
+        {
+            h = nums[left] < nums[right] ? nums[left] : nums[right] ;
+            ans = h*(right-left);
+            if(ans > max)
+                max = ans;
+            if(nums[left] < nums[right])
+                left++;
+            else
+                right--;
+        }
+        return max;
+    }
