@@ -1,0 +1,19 @@
+public static int leetCode7(int x) {
+        {
+            int res = 0;
+            int maxValue = Integer.MAX_VALUE;
+            int minValue = Integer.MIN_VALUE;
+            int temp = 0;
+            int t = x;
+            x = Math.abs(x);
+            while (x != 0) {
+                if (res > maxValue / 10 || res < minValue / 10)
+                    return 0;
+                res = res * 10 + x % 10;
+                x /= 10;
+            }
+            if (t < 0)
+                return -1 * res;
+            return res;
+        }
+    }
