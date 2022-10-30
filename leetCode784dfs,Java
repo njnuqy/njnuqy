@@ -1,0 +1,21 @@
+//虽然自己还是不怎么会dfs 但是我做了几题后已经知道这类题目用动态规划的思想了
+ public static List<String> leetCode784(String s)
+    {
+        List<String> res = new ArrayList<String>();
+        dfs784(s.toCharArray(),0,res);
+        return res;
+    }
+    public static void dfs784(char[] arr,int depth,List<String> res)
+    {
+        while(depth < arr.length && Character.isDigit(arr[depth]))
+            depth++;
+        if(depth == arr.length)
+        {
+            res.add(new String(arr));
+            return;
+        }
+        arr[depth] ^= 32;
+        dfs784(arr,depth+1,res);
+        arr[depth] ^= 32;
+        dfs784(arr,depth+1,res);
+    }
