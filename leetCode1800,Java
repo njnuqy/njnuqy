@@ -1,0 +1,16 @@
+ public static int leetCode1800(int[] nums)
+    {
+        int res = 0;
+        int l = 0;
+        while( l < nums.length)
+        {
+            int cur = nums[l++];
+            while(l < nums.length && nums[l] > nums[l-1])
+            {
+                cur += nums[l++];
+            }
+            res = Math.max(res,cur);
+        }
+        return res;
+    }
+    //经典的动态规划思想
